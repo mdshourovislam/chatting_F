@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://backend-nine-blue-22.vercel.app');
 
 export default function Chat({ token, username }) {
   const [room, setRoom] = useState('general');
@@ -12,7 +12,7 @@ export default function Chat({ token, username }) {
 
   useEffect(() => {
     // Fetch messages
-    axios.get(`http://localhost:5000/messages/${room}`)
+    axios.get(`https://backend-nine-blue-22.vercel.app/messages/${room}`)
       .then(res => setMessages(res.data));
 
     socket.emit('joinRoom', { room, username });
