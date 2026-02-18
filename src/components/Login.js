@@ -7,7 +7,7 @@ export default function Login({ setToken }) {
 
   const login = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/login', { username, password });
+      const res = await axios.post('https://backend-nine-blue-22.vercel.app/login', { username, password });
       setToken(res.data.token);
     } catch (err) {
       alert(err.response.data.error);
